@@ -20,16 +20,37 @@
 中国大陆网络推荐阿里云镜像：
 
 ```bash
-docker run --pull=always -d --name wx2rss -p 8000:8000 --restart unless-stopped -v "$PWD/data:/app/data" registry.cn-hangzhou.aliyuncs.com/whm412/wx2rss:latest
+docker run --pull=always -d --name wx2rss -p 127.0.0.1:8000:8000 --restart unless-stopped -v "$PWD/data:/app/data" registry.cn-hangzhou.aliyuncs.com/whm412/wx2rss:latest
 ```
 
 国际网络可使用 Docker Hub：
 
 ```bash
-docker run --pull=always -d --name wx2rss -p 8000:8000 --restart unless-stopped -v "$PWD/data:/app/data" whm412/wx2rss:latest
+docker run --pull=always -d --name wx2rss -p 127.0.0.1:8000:8000 --restart unless-stopped -v "$PWD/data:/app/data" whm412/wx2rss:latest
 ```
 
 启动后访问 `http://localhost:8000`。首次使用前请先完成微信与微信读书关联授权，再在 wx2rss 中扫码。
+
+## 从旧版本升级
+
+升级前先备份原来的 `data` 目录。只要新版继续挂载同一个 `data` 目录，微信账号、订阅、文章、配置、机器码和授权都会保留。
+
+以下示例假设原容器名为 `wx2rss`，数据目录为当前目录下的 `data`：
+
+```bash
+cd /你的/wx2rss目录
+cp -a data "data-backup-$(date +%Y%m%d-%H%M%S)"
+docker pull registry.cn-hangzhou.aliyuncs.com/whm412/wx2rss:latest
+docker stop wx2rss
+docker rename wx2rss wx2rss-backup
+docker run -d --name wx2rss -p 127.0.0.1:8000:8000 --restart unless-stopped \
+  -v "$PWD/data:/app/data" \
+  registry.cn-hangzhou.aliyuncs.com/whm412/wx2rss:latest
+```
+
+打开 `http://localhost:8000`，确认账号、订阅、授权和版本正常后，再决定是否删除旧容器。原部署如果使用了不同的容器名、端口、数据路径、代理或其他环境变量，请沿用原配置。国际网络可把镜像地址替换为 `whm412/wx2rss:latest`。
+
+更详细的部署和升级说明：<https://www.wxsueq.cn/#faq-upgrade>
 
 ## 文档
 
