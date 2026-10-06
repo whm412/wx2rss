@@ -58,6 +58,15 @@ docker run -d --name wx2rss -p 127.0.0.1:8000:8000 --restart unless-stopped \
 - Docker Hub：<https://hub.docker.com/r/whm412/wx2rss>
 - 阿里云镜像：`registry.cn-hangzhou.aliyuncs.com/whm412/wx2rss`
 
+## 微信小程序
+
+扫描下方二维码，可在微信中查看 wx2rss 产品介绍、自托管部署方法、版本说明和常见问题，
+也可以联系人工客服。小程序不提供在线 RSS 订阅服务，不运营公共内容目录。
+
+<p align="center">
+  <img src="wx2rss-miniprogram.jpg" width="220" alt="wx2rss 微信小程序二维码">
+</p>
+
 ## 反馈问题
 
 请使用仓库的 Issue 模板提交问题或建议。提交日志前务必删除：激活码、邮箱授权码、微信 Token、Cookie、Webhook、数据库文件和完整机器码。
