@@ -55,13 +55,14 @@ docker run -d --name wx2rss -p 127.0.0.1:8000:8000 --restart unless-stopped \
 ## 文档
 
 - 产品介绍与部署说明：<https://www.wxsueq.cn/>
+- 免费公众号订阅：<https://www.wxsueq.cn/#free-feeds>
 - Docker Hub：<https://hub.docker.com/r/whm412/wx2rss>
 - 阿里云镜像：`registry.cn-hangzhou.aliyuncs.com/whm412/wx2rss`
 
 ## 微信小程序
 
 扫描下方二维码，可在微信中查看 wx2rss 产品介绍、自托管部署方法、版本说明和常见问题，
-也可以联系人工客服。小程序不提供在线 RSS 订阅服务，不运营公共内容目录。
+也可以联系人工客服。免费公众号订阅列表统一在网站维护。
 
 <p align="center">
   <img src="wx2rss-miniprogram.jpg" width="220" alt="wx2rss 微信小程序二维码">
@@ -74,3 +75,11 @@ docker run -d --name wx2rss -p 127.0.0.1:8000:8000 --restart unless-stopped \
 本项目调用的第三方服务可能调整接口或触发安全验证。项目会尽量减少请求、错峰执行和安全退避，但不能承诺永不触发第三方风控。
 
 重新扫码只会更新登录凭据，不代表第三方服务端的风控已经解除。扫码及恢复探测后会进入养护期，请不要连续点击抓取或轮换账号测试。
+
+## 推荐免费公众号
+
+欢迎通过“推荐免费公众号”Issue 表单提交候选公众号。请提供公众号名称、至少一篇可公开访问的文章链接、推荐理由以及大致更新频率；不要提交 Cookie、Token、登录截图或其他账号凭据。
+
+推荐并不代表自动收录。维护者会人工核对公众号身份、数字 ID、内容合规性、更新情况和抓取稳定性，通过后再逐步加入免费订阅列表。已注销、冻结、长期停更、主要转载或存在明显版权与合规风险的公众号可能不予收录。
+
+[提交公众号推荐](https://github.com/whm412/wx2rss/issues/new?template=recommend-public-account.yml)
